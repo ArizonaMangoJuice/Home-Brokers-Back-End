@@ -13,7 +13,7 @@ var transporter = nodemailer.createTransport({
 
 /* send email message */
 router.post("/", function(req, res) {
-    let {email, firstName, lastName, additional} = req.body;  
+    let {email, firstName, lastName, additional, phoneNumber} = req.body;  
 
     console.log(email, firstName, lastName, additional)
 
@@ -22,9 +22,10 @@ router.post("/", function(req, res) {
         to: email,
         subject: 'website query ' + email,
         text: `
-            ${email}
+            email - ${email}
+            phone - ${phoneNumber}
             ${firstName}  ${lastName}
-            ${additional}
+            ${additional ? additional : 'No message'}
         `
     };
 
