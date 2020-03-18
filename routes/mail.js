@@ -23,7 +23,7 @@ router.post("/", function(req, res) {
         subject: 'website query ' + email,
         text: `
             email - ${email}
-            phone - ${phoneNumber}
+            phone - ${phoneNumber ? phoneNumber : 'no number'}
             ${firstName}  ${lastName}
             ${additional ? additional : 'No message'}
         `
