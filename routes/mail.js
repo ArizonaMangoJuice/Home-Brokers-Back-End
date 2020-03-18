@@ -18,8 +18,8 @@ router.post("/", function(req, res) {
     console.log(email, firstName, lastName, additional)
 
     var mailOptions = {
-        from: process.env.EMAIL_SMTP_USERNAME,
-        to: email,
+        from: email,
+        to: process.env.EMAIL_SMTP_USERNAME,
         subject: 'website query ' + email,
         text: `
             email - ${email}
